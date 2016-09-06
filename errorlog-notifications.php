@@ -6,7 +6,7 @@
 	$errorlog = 'error_log';
 
 	function rglob($pattern, $flags = 0, $path = ''){
-	    if(!$path && ($dir = dirname($pattern)) != '.'):
+		if(!$path && ($dir = dirname($pattern)) != '.'):
 	        if($dir == '\\' || $dir == '/'):
 				$dir = '';
 	        endif;
@@ -14,7 +14,7 @@
 	    endif;
 
 		$paths = glob($path . '*', GLOB_ONLYDIR | GLOB_NOSORT);
-	    $files = glob($path . $pattern, $flags);
+		$files = glob($path . $pattern, $flags);
 
 		foreach ($paths as $p):
 			$files = array_merge($files, rglob($pattern, $flags, $p . '/'));
